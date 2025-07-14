@@ -169,6 +169,21 @@
             font-weight: bold;
             font-size: 1.1em;
             color: #1b5e20;
+            word-break: break-all; /* Para garantir que a chave longa não quebre o layout */
+        }
+        #infoPix button {
+            background-color: #4CAF50; /* Verde para o botão copiar */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        #infoPix button:hover {
+            background-color: #45a049;
         }
         .delivery-info {
             text-align: center;
@@ -283,7 +298,8 @@
 
         <div id="infoPix">
             <p>Por favor, faça o pagamento via PIX para a chave abaixo:</p>
-            <p>Chave PIX: <span class="chave-pix">directorjorgelm@gmail.com</span></p>
+            <p>Chave PIX: <span class="chave-pix" id="chavePixText">directorjorgelm@gmail.com</span></p>
+            <button onclick="copyPix()">Copiar PIX</button>
             <p>Obrigado pelo seu pedido!</p>
         </div>
 
@@ -331,6 +347,17 @@
             } else {
                 infoPix.style.display = 'none';
             }
+        }
+
+        // NOVA FUNÇÃO: Copiar chave PIX
+        function copyPix() {
+            const pixText = document.getElementById('chavePixText').textContent;
+            navigator.clipboard.writeText(pixText).then(() => {
+                alert('Chave PIX copiada para a área de transferência!');
+            }).catch(err => {
+                console.error('Erro ao copiar a chave PIX: ', err);
+                alert('Não foi possível copiar a chave PIX. Por favor, copie manualmente: ' + pixText);
+            });
         }
 
         // Função para enviar o pedido via WhatsApp
@@ -386,7 +413,7 @@
             // Adiciona a informação de retirada ou entrega
             if (totalItens >= 10) {
                 mensagem += `\n_Este pedido tem ${totalItens} itens e se qualifica para entrega gratuita._\n`;
-                mensagem += `*Por favor, informe o endereço de entrega completo aqui nas observações ou por mensagem.*\n`;
+                mensagem += `*Por favor, inclua o endereço de entrega completo nas observações ou por mensagem.*\n`;
                 mensagem += `\n_Já estamos preparando seu pedido!_`;
             } else {
                 mensagem += `\n*Endereço para Retirada:* Rua Paiaguás, 405, Jd. Aníbal\n`;
