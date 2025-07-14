@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamonhas de Goiás - Faça seu Pedido!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7e8; /* Cor de fundo suave */
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #8B4513; /* Marrom para o título */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .produto {
+            background-color: #fffaf0; /* Fundo mais claro para os produtos */
+            border: 1px solid #ffe8cc;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .produto-info {
+            flex-grow: 1;
+        }
+        .produto h2 {
+            color: #6B8E23; /* Verde oliva para o nome do produto */
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .produto p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .produto .preco {
+            font-weight: bold;
+            color: #B8860B; /* Dourado para o preço */
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .quantidade {
+            display: flex;
+            align-items: center;
+        }
+        .quantidade button {
+            background-color: #6B8E23;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        .quantidade button:hover {
+            background-color: #5a7a1c;
+        }
+        .quantidade input {
+            width: 40px;
+            text-align: center;
+            margin: 0 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 0;
+            font-size: 1em;
+        }
+        .input-group {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        .input-group input[type="text"],
+        .input-group textarea {
+            width: calc(100% - 22px); /* Ajuste para padding */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .input-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+        .total-container {
+            text-align: right;
+            margin-top: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #8B4513;
+        }
+        .forma-pagamento {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .forma-pagamento h3 {
+            color: #6B8E23;
+            margin-bottom: 15px;
+        }
+        .forma-pagamento label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .forma-pagamento input[type="radio"] {
+            margin-right: 8px;
+        }
+        .botao-enviar {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #25D366; /* Verde WhatsApp */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 30px;
+            transition: background-color 0.2s;
+        }
+        .botao-enviar:hover {
+            background-color: #1DA851;
+        }
+        #infoPix {
+            background-color: #e8f5e9; /* Fundo verde claro para PIX */
+            border: 1px solid #a5d6a7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            display: none; /* Escondido por padrão */
+            text-align: center;
+            color: #2e7d32;
+        }
+        #infoPix p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+        #infoPix .chave-pix {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #1b5e20;
+        }
+        .delivery-info {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #e0f7fa; /* Fundo azul claro para destaque */
+            border: 1px solid #b2ebf2;
+            border-radius: 8px;
+            color: #00796b;
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pamonhas de Goiás</h1>
+
+        <div class="produto" data-nome="Pamonha Doce" data-preco="8.50">
+            <div class="produto-info">
+                <h2>Pamonha Doce</h2>
+                <p>A doçura que conforta! Nossa pamonha doce é feita com milho fresquinho, no ponto certo para derreter na boca e te transportar de volta à fazenda. Perfeita para qualquer hora!</p>
+                <span class="preco">R$ 8,50</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto" data-nome="Pamonha Salgada" data-preco="8.50">
+            <div class="produto-info">
+                <h2>Pamonha Salgada</h2>
+                <p>Um clássico goiano! A pamonha salgada é pura tradição, com o sabor autêntico do milho e um toque especial de tempero. Ideal para quem busca a originalidade da culinária regional.</p>
+                <span class="preco">R$ 8,50</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto" data-nome="Pamonha com Queijo" data-preco="9.50">
+            <div class="produto-info">
+                <h2>Pamonha com Queijo</h2>
+                <p>A união perfeita! Nossa pamonha com queijo combina a maciez do milho com um recheio generoso de queijo que derrete a cada mordida. Uma delícia irresistível e super cremosa!</p>
+                <span class="preco">R$ 9,50</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto" data-nome="Pamonha com Linguiça" data-preco="9.00">
+            <div class="produto-info">
+                <h2>Pamonha com Linguiça</h2>
+                <p>Para quem ama um toque a mais! A pamonha com linguiça é robusta e cheia de sabor, com pedacinhos de linguiça que elevam essa iguaria. Uma experiência completa e marcante!</p>
+                <span class="preco">R$ 9,00</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto" data-nome="Cural Doce" data-preco="6.00">
+            <div class="produto-info">
+                <h2>Cural Doce</h2>
+                <p>Doçura e cremosidade em cada colherada! Nosso cural doce é a sobremesa perfeita, suave e delicado, feito com o melhor milho para adoçar seu dia de forma inesquecível.</p>
+                <span class="preco">R$ 6,00</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="total-container">
+            Total: <span id="total-pedido">R$ 0,00</span>
+        </div>
+
+        <div class="input-group">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" placeholder="Seu nome completo" required>
+        </div>
+
+        <div class="input-group">
+            <label for="telefone">Telefone (WhatsApp):</label>
+            <input type="text" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
+        </div>
+
+        <div class="input-group">
+            <label for="observacoes">Observações (Opcional):</label>
+            <textarea id="observacoes" placeholder="Alguma observação sobre o pedido?"></textarea>
+        </div>
+
+        <div class="forma-pagamento">
+            <h3>Forma de Pagamento:</h3>
+            <label>
+                <input type="radio" name="pagamento" value="PIX" id="pagamentoPix" onchange="togglePixInfo()"> PIX
+            </label>
+            <label>
+                <input type="radio" name="pagamento" value="Dinheiro na Retirada" id="pagamentoDinheiro" onchange="togglePixInfo()" checked> Dinheiro na Retirada
+            </label>
+        </div>
+
+        <div id="infoPix">
+            <p>Por favor, faça o pagamento via PIX para a chave abaixo:</p>
+            <p>Chave PIX: <span class="chave-pix">directorjorgelm@gmail.com</span></p>
+            <p>Obrigado pelo seu pedido!</p>
+        </div>
+
+        <button class="botao-enviar" onclick="enviarPedido()">Confirmar Pedido para Retirada</button>
+        
+        <p style="text-align: center; margin-top: 20px; font-weight: bold; color: #8B4513;">
+            Endereço para Retirada: <br>Rua Paiaguás, 405, Jd. Aníbal
+        </p>
+
+        <div class="delivery-info">
+            *Fazemos entregas **sem custo** para pedidos acima de 10 itens!*<br>
+            (Para entrega, inclua seu endereço nas observações.)
+        </div>
+    </div>
+
+    <script>
+        // Função para mudar a quantidade de um item
+        function changeQuantity(button, change) {
+            const input = button.parentNode.querySelector('.item-quantidade');
+            let value = parseInt(input.value);
+            value = value + change;
+            if (value < 0) value = 0; // Não deixa a quantidade ser negativa
+            input.value = value;
+            updateTotal(); // Atualiza o total sempre que a quantidade muda
+        }
+
+        // Função para atualizar o total do pedido
+        function updateTotal() {
+            let total = 0;
+            const produtos = document.querySelectorAll('.produto');
+            produtos.forEach(produto => {
+                const preco = parseFloat(produto.dataset.preco);
+                const quantidade = parseInt(produto.querySelector('.item-quantidade').value);
+                total += preco * quantidade;
+            });
+            document.getElementById('total-pedido').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Função para mostrar/esconder informações do PIX
+        function togglePixInfo() {
+            const pagamentoPix = document.getElementById('pagamentoPix');
+            const infoPix = document.getElementById('infoPix');
+            if (pagamentoPix.checked) {
+                infoPix.style.display = 'block';
+            } else {
+                infoPix.style.display = 'none';
+            }
+        }
+
+        // Função para enviar o pedido via WhatsApp
+        function enviarPedido() {
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const observacoes = document.getElementById('observacoes').value;
+            const formaPagamento = document.querySelector('input[name="pagamento"]:checked').value;
+            const totalPedido = document.getElementById('total-pedido').textContent;
+
+            if (!nome || !telefone) {
+                alert('Por favor, preencha seu nome e telefone para o pedido!');
+                return;
+            }
+
+            let mensagem = `*NOVO PEDIDO - Pamonhas de Goiás*\n\n`;
+            mensagem += `*Cliente:* ${nome}\n`;
+            mensagem += `*Telefone:* ${telefone}\n`;
+            
+            mensagem += `\n*Itens do Pedido:*\n`;
+
+            const produtos = document.querySelectorAll('.produto');
+            let temItemNoCarrinho = false;
+            let totalItens = 0; // Para contar a quantidade total de itens
+            produtos.forEach(produto => {
+                const nomeProduto = produto.dataset.nome;
+                const quantidade = parseInt(produto.querySelector('.item-quantidade').value);
+                const precoUnitario = parseFloat(produto.dataset.preco);
+
+                if (quantidade > 0) {
+                    mensagem += `- ${quantidade}x ${nomeProduto} (R$ ${precoUnitario.toFixed(2).replace('.', ',')}/un)\n`;
+                    temItemNoCarrinho = true;
+                    totalItens += quantidade; // Soma a quantidade para o total de itens
+                }
+            });
+
+            if (!temItemNoCarrinho) {
+                alert('Seu carrinho está vazio! Adicione itens antes de enviar o pedido.');
+                return;
+            }
+
+            if (observacoes) {
+                mensagem += `\n*Observações:* ${observacoes}\n`;
+            }
+
+            mensagem += `\n*Total a Pagar:* ${totalPedido}\n`;
+            mensagem += `*Forma de Pagamento:* ${formaPagamento}\n`;
+
+            if (formaPagamento === "PIX") {
+                 mensagem += `\n*Instruções PIX:* Por favor, faça o pagamento para a chave *directorjorgelm@gmail.com*. O pedido será confirmado após o pagamento.`;
+            }
+
+            // Adiciona a informação de retirada ou entrega
+            if (totalItens >= 10) {
+                mensagem += `\n_Este pedido tem ${totalItens} itens e se qualifica para entrega gratuita._\n`;
+                mensagem += `*Por favor, informe o endereço de entrega completo aqui nas observações ou por mensagem.*\n`;
+                mensagem += `\n_Já estamos preparando seu pedido!_`;
+            } else {
+                mensagem += `\n*Endereço para Retirada:* Rua Paiaguás, 405, Jd. Aníbal\n`;
+                mensagem += `\n_Já estamos preparando seu pedido para retirada!_`;
+            }
+            
+            const numeroWhatsApp = '5519993709642'; // Seu número de WhatsApp com DDD
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+
+            window.open(urlWhatsApp, '_blank');
+        }
+
+        // Chama a função updateTotal ao carregar a página para garantir que o total inicial seja R$ 0,00
+        document.addEventListener('DOMContentLoaded', updateTotal);
+    </script>
+</body>
+</html>
