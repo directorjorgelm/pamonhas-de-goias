@@ -9,7 +9,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f7f7e8; /* Cor de fundo suave */
+            background-color: #E6F7FF; /* FUNDO AZUL CLARO */
             color: #333;
         }
         .container {
@@ -21,13 +21,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #8B4513; /* Marrom para o título */
+            color: #FFC300; /* TÍTULO AMARELO-MILHO */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra para melhorar a leitura */
             text-align: center;
             margin-bottom: 30px;
         }
         .produto {
-            background-color: #fffaf0; /* Fundo mais claro para os produtos */
-            border: 1px solid #ffe8cc;
+            background-color: #fffaf0;
+            border: 2px solid #6B8E23; /* BORDAS VERDES */
             border-radius: 8px;
             padding: 15px;
             margin-bottom: 20px;
@@ -39,7 +40,7 @@
             flex-grow: 1;
         }
         .produto h2 {
-            color: #6B8E23; /* Verde oliva para o nome do produto */
+            color: #6B8E23;
             margin-top: 0;
             margin-bottom: 5px;
         }
@@ -50,7 +51,7 @@
         }
         .produto .preco {
             font-weight: bold;
-            color: #B8860B; /* Dourado para o preço */
+            color: #B8860B;
             font-size: 1.1em;
             margin-bottom: 10px;
             display: block;
@@ -98,7 +99,7 @@
         }
         .input-group input[type="text"],
         .input-group textarea {
-            width: calc(100% - 22px); /* Ajuste para padding */
+            width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -137,7 +138,7 @@
             display: block;
             width: 100%;
             padding: 15px;
-            background-color: #25D366; /* Verde WhatsApp */
+            background-color: #25D366;
             color: white;
             border: none;
             border-radius: 8px;
@@ -152,27 +153,24 @@
             background-color: #1DA851;
         }
         #infoPix {
-            background-color: #e8f5e9; /* Fundo verde claro para PIX */
+            background-color: #e8f5e9;
             border: 1px solid #a5d6a7;
             border-radius: 8px;
             padding: 15px;
             margin-top: 20px;
-            display: none; /* Escondido por padrão */
+            display: none;
             text-align: center;
             color: #2e7d32;
         }
-        #infoPix p {
-            margin: 5px 0;
-            font-size: 0.95em;
-        }
+        #infoPix p { margin: 5px 0; font-size: 0.95em; }
         #infoPix .chave-pix {
             font-weight: bold;
             font-size: 1.1em;
             color: #1b5e20;
-            word-break: break-all; /* Para garantir que a chave longa não quebre o layout */
+            word-break: break-all;
         }
         #infoPix button {
-            background-color: #4CAF50; /* Verde para o botão copiar */
+            background-color: #4CAF50;
             color: white;
             border: none;
             padding: 8px 15px;
@@ -182,14 +180,12 @@
             margin-top: 10px;
             transition: background-color 0.2s;
         }
-        #infoPix button:hover {
-            background-color: #45a049;
-        }
+        #infoPix button:hover { background-color: #45a049; }
         .delivery-info {
             text-align: center;
             margin-top: 25px;
             padding: 15px;
-            background-color: #e0f7fa; /* Fundo azul claro para destaque */
+            background-color: #e0f7fa;
             border: 1px solid #b2ebf2;
             border-radius: 8px;
             color: #00796b;
@@ -202,70 +198,7 @@
     <div class="container">
         <h1>Pamonhas de Goiás</h1>
 
-        <div class="produto" data-nome="Pamonha Doce com Queijo" data-preco="9.00">
-            <div class="produto-info">
-                <h2>Pamonha Doce com Queijo</h2>
-                <p>A doçura que conforta! Nossa pamonha doce é feita com milho fresquinho e um delicioso recheio de queijo, no ponto certo para derreter na boca e te transportar de volta à fazenda.</p>
-                <span class="preco">R$ 9,00</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto" data-nome="Pamonha Salgada com Queijo" data-preco="9.00">
-            <div class="produto-info">
-                <h2>Pamonha Salgada com Queijo</h2>
-                <p>Um clássico goiano! A pamonha salgada é pura tradição, com o sabor autêntico do milho, um toque especial de tempero e um recheio generoso de queijo.</p>
-                <span class="preco">R$ 9,00</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto" data-nome="Pamonha com Linguiça e Queijo" data-preco="12.50">
-            <div class="produto-info">
-                <h2>Pamonha com Linguiça e Queijo</h2>
-                <p>Sabor em dobro! A pamonha com linguiça e queijo combina a robustez da linguiça com a cremosidade do queijo derretido. Uma experiência completa e marcante!</p>
-                <span class="preco">R$ 12,50</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto" data-nome="Cural com Canela" data-preco="7.00">
-            <div class="produto-info">
-                <h2>Cural com Canela</h2>
-                <p>Doçura e cremosidade em cada colherada! Nosso cural é finalizado com uma pitada de canela, trazendo um aroma e sabor especial. A sobremesa perfeita!</p>
-                <span class="preco">R$ 7,00</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-        
-        <div class="produto" data-nome="Cural sem Canela" data-preco="7.00">
-            <div class="produto-info">
-                <h2>Cural sem Canela</h2>
-                <p>A pura cremosidade do milho! Nosso cural tradicional, sem canela, é suave e delicado, perfeito para quem ama o sabor autêntico do milho para adoçar o dia.</p>
-                <span class="preco">R$ 7,00</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
+        <div id="lista-produtos"></div>
 
         <div class="total-container">
             Total: <span id="total-pedido">R$ 0,00</span>
@@ -294,8 +227,10 @@
         <div id="infoPix">
             <p>Por favor, faça o pagamento via PIX para a chave abaixo:</p>
             <p>Chave PIX: <span class="chave-pix" id="chavePixText">directorjorgelm@gmail.com</span></p>
-            <button onclick="copyPix()">Copiar PIX</button>
-            <p>Obrigado pelo seu pedido!</p>
+            <p style="margin-top: 10px;"><strong>Nome:</strong> JORGE LUIZ MARIANO VIEIRA</p>
+            <p><strong>Instituição:</strong> NUBANK</p>
+            <button onclick="copyPix()">Copiar Chave PIX</button>
+            <p style="margin-top: 10px; font-size: 0.9em;">Obrigado pelo seu pedido!</p>
         </div>
 
         <button class="botao-enviar" onclick="enviarPedido()">Confirmar Pedido para Retirada</button>
@@ -311,17 +246,69 @@
     </div>
 
     <script>
-        // Função para mudar a quantidade de um item
+        // ===================================================================
+        // ||               SEU CARDÁPIO - EDITE APENAS AQUI                ||
+        // ===================================================================
+        const produtos = [
+            { 
+                nome: "Pamonha Doce com Queijo", 
+                preco: 9.00, 
+                descricao: "A doçura que conforta! Nossa pamonha doce é feita com milho fresquinho e um delicioso recheio de queijo."
+            },
+            { 
+                nome: "Pamonha Salgada com Queijo", 
+                preco: 9.00, 
+                descricao: "Um clássico goiano! A pamonha salgada é pura tradição, com o sabor autêntico do milho e um recheio generoso de queijo."
+            },
+            { 
+                nome: "Pamonha com Linguiça e Queijo", 
+                preco: 12.50, 
+                descricao: "Sabor em dobro! Combina a robustez da linguiça com a cremosidade do queijo derretido."
+            },
+            { 
+                nome: "Cural com Canela", 
+                preco: 7.00, 
+                descricao: "Doçura e cremosidade em cada colherada! Finalizado com uma pitada de canela, trazendo um aroma e sabor especial."
+            },
+            { 
+                nome: "Cural sem Canela", 
+                preco: 7.00, 
+                descricao: "A pura cremosidade do milho! Nosso cural tradicional, sem canela, é suave e delicado."
+            }
+        ];
+        // ===================================================================
+
+        function renderizarProdutos() {
+            const container = document.getElementById('lista-produtos');
+            if (!container) return; 
+
+            produtos.forEach(p => {
+                container.innerHTML += `
+                    <div class="produto" data-nome="${p.nome}" data-preco="${p.preco.toFixed(2)}">
+                        <div class="produto-info">
+                            <h2>${p.nome}</h2>
+                            <p>${p.descricao}</p>
+                            <span class="preco">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <div class="quantidade">
+                            <button onclick="changeQuantity(this, -1)">-</button>
+                            <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                            <button onclick="changeQuantity(this, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
         function changeQuantity(button, change) {
             const input = button.parentNode.querySelector('.item-quantidade');
             let value = parseInt(input.value);
             value = value + change;
-            if (value < 0) value = 0; // Não deixa a quantidade ser negativa
+            if (value < 0) value = 0;
             input.value = value;
-            updateTotal(); // Atualiza o total sempre que a quantidade muda
+            updateTotal();
         }
 
-        // Função para atualizar o total do pedido
         function updateTotal() {
             let total = 0;
             const produtos = document.querySelectorAll('.produto');
@@ -333,29 +320,29 @@
             document.getElementById('total-pedido').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
         }
 
-        // Função para mostrar/esconder informações do PIX
         function togglePixInfo() {
             const pagamentoPix = document.getElementById('pagamentoPix');
             const infoPix = document.getElementById('infoPix');
-            if (pagamentoPix.checked) {
-                infoPix.style.display = 'block';
-            } else {
-                infoPix.style.display = 'none';
-            }
+            infoPix.style.display = pagamentoPix.checked ? 'block' : 'none';
         }
 
-        // NOVA FUNÇÃO: Copiar chave PIX
         function copyPix() {
             const pixText = document.getElementById('chavePixText').textContent;
+            const copyButton = document.querySelector('#infoPix button');
             navigator.clipboard.writeText(pixText).then(() => {
-                alert('Chave PIX copiada para a área de transferência!');
+                const originalText = copyButton.textContent;
+                copyButton.textContent = 'Copiado!';
+                copyButton.style.backgroundColor = '#2e7d32';
+                setTimeout(() => {
+                    copyButton.textContent = originalText;
+                    copyButton.style.backgroundColor = '#4CAF50';
+                }, 2000);
             }).catch(err => {
                 console.error('Erro ao copiar a chave PIX: ', err);
                 alert('Não foi possível copiar a chave PIX. Por favor, copie manualmente: ' + pixText);
             });
         }
 
-        // Função para enviar o pedido via WhatsApp
         function enviarPedido() {
             const nome = document.getElementById('nome').value;
             const observacoes = document.getElementById('observacoes').value;
@@ -369,12 +356,11 @@
 
             let mensagem = `*NOVO PEDIDO - Pamonhas de Goiás*\n\n`;
             mensagem += `*Cliente:* ${nome}\n`;
-            
             mensagem += `\n*Itens do Pedido:*\n`;
 
             const produtos = document.querySelectorAll('.produto');
             let temItemNoCarrinho = false;
-            let totalItens = 0; // Para contar a quantidade total de itens
+            let totalItens = 0;
             produtos.forEach(produto => {
                 const nomeProduto = produto.dataset.nome;
                 const quantidade = parseInt(produto.querySelector('.item-quantidade').value);
@@ -383,7 +369,7 @@
                 if (quantidade > 0) {
                     mensagem += `- ${quantidade}x ${nomeProduto} (R$ ${precoUnitario.toFixed(2).replace('.', ',')}/un)\n`;
                     temItemNoCarrinho = true;
-                    totalItens += quantidade; // Soma a quantidade para o total de itens
+                    totalItens += quantidade;
                 }
             });
 
@@ -400,27 +386,27 @@
             mensagem += `*Forma de Pagamento:* ${formaPagamento}\n`;
 
             if (formaPagamento === "PIX") {
-                 mensagem += `\n*Instruções PIX:* Por favor, faça o pagamento para a chave *directorjorgelm@gmail.com*. O pedido será confirmado após o pagamento.`;
+                 mensagem += `\n*Instruções PIX:*\nFaça o pagamento para a chave *directorjorgelm@gmail.com*.\n\n*Nome:* JORGE LUIZ MARIANO VIEIRA\n*Instituição:* NUBANK\n\n_O pedido será confirmado após o pagamento._`;
             }
 
-            // Adiciona a informação de retirada ou entrega
             if (totalItens >= 10) {
-                mensagem += `\n_Este pedido tem ${totalItens} itens e se qualifica para entrega gratuita._\n`;
+                mensagem += `\n\n_Este pedido tem ${totalItens} itens e se qualifica para entrega gratuita._\n`;
                 mensagem += `*Por favor, inclua o endereço de entrega completo nas observações ou por mensagem.*\n`;
                 mensagem += `\n_Já estamos preparando seu pedido!_`;
             } else {
-                mensagem += `\n*Endereço para Retirada:* Rua Paiaguás, 405, Jd. Aníbal\n`;
+                mensagem += `\n\n*Endereço para Retirada:*\n_Rua Paiaguás, 405, Jd. Aníbal_\n`;
                 mensagem += `\n_Já estamos preparando seu pedido para retirada!_`;
             }
             
-            const numeroWhatsApp = '5519993709642'; // Seu número de WhatsApp com DDD
+            const numeroWhatsApp = '5519993709642';
             const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
-
             window.open(urlWhatsApp, '_blank');
         }
 
-        // Chama a função updateTotal ao carregar a página para garantir que o total inicial seja R$ 0,00
-        document.addEventListener('DOMContentLoaded', updateTotal);
+        document.addEventListener('DOMContentLoaded', () => {
+            renderizarProdutos();
+            updateTotal();
+        });
     </script>
 </body>
 </html>
