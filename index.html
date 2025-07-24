@@ -202,49 +202,10 @@
     <div class="container">
         <h1>Pamonhas de Goiás</h1>
 
-        <div class="produto" data-nome="Pamonha Doce" data-preco="8.50">
+        <div class="produto" data-nome="Pamonha Doce com Queijo" data-preco="9.00">
             <div class="produto-info">
-                <h2>Pamonha Doce</h2>
-                <p>A doçura que conforta! Nossa pamonha doce é feita com milho fresquinho, no ponto certo para derreter na boca e te transportar de volta à fazenda. Perfeita para qualquer hora!</p>
-                <span class="preco">R$ 8,50</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto" data-nome="Pamonha Salgada" data-preco="8.50">
-            <div class="produto-info">
-                <h2>Pamonha Salgada</h2>
-                <p>Um clássico goiano! A pamonha salgada é pura tradição, com o sabor autêntico do milho e um toque especial de tempero. Ideal para quem busca a originalidade da culinária regional.</p>
-                <span class="preco">R$ 8,50</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto" data-nome="Pamonha com Queijo" data-preco="9.50">
-            <div class="produto-info">
-                <h2>Pamonha com Queijo</h2>
-                <p>A união perfeita! Nossa pamonha com queijo combina a maciez do milho com um recheio generoso de queijo que derrete a cada mordida. Uma delícia irresistível e super cremosa!</p>
-                <span class="preco">R$ 9,50</span>
-            </div>
-            <div class="quantidade">
-                <button onclick="changeQuantity(this, -1)">-</button>
-                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                <button onclick="changeQuantity(this, 1)">+</button>
-            </div>
-        </div>
-
-        <div class="produto" data-nome="Pamonha com Linguiça" data-preco="9.00">
-            <div class="produto-info">
-                <h2>Pamonha com Linguiça</h2>
-                <p>Para quem ama um toque a mais! A pamonha com linguiça é robusta e cheia de sabor, com pedacinhos de linguiça que elevam essa iguaria. Uma experiência completa e marcante!</p>
+                <h2>Pamonha Doce com Queijo</h2>
+                <p>A doçura que conforta! Nossa pamonha doce é feita com milho fresquinho e um delicioso recheio de queijo, no ponto certo para derreter na boca e te transportar de volta à fazenda.</p>
                 <span class="preco">R$ 9,00</span>
             </div>
             <div class="quantidade">
@@ -254,11 +215,50 @@
             </div>
         </div>
 
-        <div class="produto" data-nome="Cural Doce" data-preco="6.00">
+        <div class="produto" data-nome="Pamonha Salgada com Queijo" data-preco="9.00">
             <div class="produto-info">
-                <h2>Cural Doce</h2>
-                <p>Doçura e cremosidade em cada colherada! Nosso cural doce é a sobremesa perfeita, suave e delicado, feito com o melhor milho para adoçar seu dia de forma inesquecível.</p>
-                <span class="preco">R$ 6,00</span>
+                <h2>Pamonha Salgada com Queijo</h2>
+                <p>Um clássico goiano! A pamonha salgada é pura tradição, com o sabor autêntico do milho, um toque especial de tempero e um recheio generoso de queijo.</p>
+                <span class="preco">R$ 9,00</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto" data-nome="Pamonha com Linguiça e Queijo" data-preco="12.50">
+            <div class="produto-info">
+                <h2>Pamonha com Linguiça e Queijo</h2>
+                <p>Sabor em dobro! A pamonha com linguiça e queijo combina a robustez da linguiça com a cremosidade do queijo derretido. Uma experiência completa e marcante!</p>
+                <span class="preco">R$ 12,50</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+
+        <div class="produto" data-nome="Cural com Canela" data-preco="7.00">
+            <div class="produto-info">
+                <h2>Cural com Canela</h2>
+                <p>Doçura e cremosidade em cada colherada! Nosso cural é finalizado com uma pitada de canela, trazendo um aroma e sabor especial. A sobremesa perfeita!</p>
+                <span class="preco">R$ 7,00</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="changeQuantity(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
+                <button onclick="changeQuantity(this, 1)">+</button>
+            </div>
+        </div>
+        
+        <div class="produto" data-nome="Cural sem Canela" data-preco="7.00">
+            <div class="produto-info">
+                <h2>Cural sem Canela</h2>
+                <p>A pura cremosidade do milho! Nosso cural tradicional, sem canela, é suave e delicado, perfeito para quem ama o sabor autêntico do milho para adoçar o dia.</p>
+                <span class="preco">R$ 7,00</span>
             </div>
             <div class="quantidade">
                 <button onclick="changeQuantity(this, -1)">-</button>
@@ -274,11 +274,6 @@
         <div class="input-group">
             <label for="nome">Seu Nome:</label>
             <input type="text" id="nome" placeholder="Seu nome completo" required>
-        </div>
-
-        <div class="input-group">
-            <label for="telefone">Telefone (WhatsApp):</label>
-            <input type="text" id="telefone" placeholder="(XX) XXXXX-XXXX" required>
         </div>
 
         <div class="input-group">
@@ -363,19 +358,17 @@
         // Função para enviar o pedido via WhatsApp
         function enviarPedido() {
             const nome = document.getElementById('nome').value;
-            const telefone = document.getElementById('telefone').value;
             const observacoes = document.getElementById('observacoes').value;
             const formaPagamento = document.querySelector('input[name="pagamento"]:checked').value;
             const totalPedido = document.getElementById('total-pedido').textContent;
 
-            if (!nome || !telefone) {
-                alert('Por favor, preencha seu nome e telefone para o pedido!');
+            if (!nome) {
+                alert('Por favor, preencha seu nome para o pedido!');
                 return;
             }
 
             let mensagem = `*NOVO PEDIDO - Pamonhas de Goiás*\n\n`;
             mensagem += `*Cliente:* ${nome}\n`;
-            mensagem += `*Telefone:* ${telefone}\n`;
             
             mensagem += `\n*Itens do Pedido:*\n`;
 
