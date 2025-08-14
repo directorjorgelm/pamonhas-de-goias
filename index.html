@@ -1,412 +1,304 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pamonhas de Goiás - Faça seu Pedido!</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #E6F7FF; /* FUNDO AZUL CLARO */
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #FFC300; /* TÍTULO AMARELO-MILHO */
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Sombra para melhorar a leitura */
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .produto {
-            background-color: #fffaf0;
-            border: 2px solid #6B8E23; /* BORDAS VERDES */
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .produto-info {
-            flex-grow: 1;
-        }
-        .produto h2 {
-            color: #6B8E23;
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        .produto p {
-            font-size: 0.9em;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        .produto .preco {
-            font-weight: bold;
-            color: #B8860B;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .quantidade {
-            display: flex;
-            align-items: center;
-        }
-        .quantidade button {
-            background-color: #6B8E23;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.2s;
-        }
-        .quantidade button:hover {
-            background-color: #5a7a1c;
-        }
-        .quantidade input {
-            width: 40px;
-            text-align: center;
-            margin: 0 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 5px 0;
-            font-size: 1em;
-        }
-        .input-group {
-            margin-top: 20px;
-            margin-bottom: 15px;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #444;
-        }
-        .input-group input[type="text"],
-        .input-group textarea {
-            width: calc(100% - 22px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        .input-group textarea {
-            resize: vertical;
-            min-height: 60px;
-        }
-        .total-container {
-            text-align: right;
-            margin-top: 25px;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #8B4513;
-        }
-        .forma-pagamento {
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        .forma-pagamento h3 {
-            color: #6B8E23;
-            margin-bottom: 15px;
-        }
-        .forma-pagamento label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-        .forma-pagamento input[type="radio"] {
-            margin-right: 8px;
-        }
-        .botao-enviar {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: #25D366;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.3em;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 30px;
-            transition: background-color 0.2s;
-        }
-        .botao-enviar:hover {
-            background-color: #1DA851;
-        }
-        #infoPix {
-            background-color: #e8f5e9;
-            border: 1px solid #a5d6a7;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-            display: none;
-            text-align: center;
-            color: #2e7d32;
-        }
-        #infoPix p { margin: 5px 0; font-size: 0.95em; }
-        #infoPix .chave-pix {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #1b5e20;
-            word-break: break-all;
-        }
-        #infoPix button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-top: 10px;
-            transition: background-color 0.2s;
-        }
-        #infoPix button:hover { background-color: #45a049; }
-        .delivery-info {
-            text-align: center;
-            margin-top: 25px;
-            padding: 15px;
-            background-color: #e0f7fa;
-            border: 1px solid #b2ebf2;
-            border-radius: 8px;
-            color: #00796b;
-            font-weight: bold;
-            font-size: 0.95em;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pamonhas de Goiás - Faça seu Pedido!</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #E6F7FF;
+        color: #333;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        color: #FFC300;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .produto {
+        background-color: #fffaf0;
+        border: 2px solid #6B8E23;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .produto-info { flex-grow: 1; }
+    .produto h2 {
+        color: #6B8E23;
+        margin: 0 0 5px;
+    }
+    .produto p {
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 10px;
+    }
+    .preco {
+        font-weight: bold;
+        color: #B8860B;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .quantidade {
+        display: flex;
+        align-items: center;
+    }
+    .quantidade button {
+        background-color: #6B8E23;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2em;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.2s;
+    }
+    .quantidade button:hover { background-color: #5a7a1c; }
+    .quantidade input {
+        width: 40px;
+        text-align: center;
+        margin: 0 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px 0;
+        font-size: 1em;
+    }
+    .input-group { margin-top: 20px; margin-bottom: 15px; }
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #444;
+    }
+    .input-group input[type="text"], .input-group textarea {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+    .input-group textarea {
+        resize: vertical;
+        min-height: 60px;
+    }
+    .total-container {
+        text-align: right;
+        margin-top: 25px;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #8B4513;
+    }
+    .forma-pagamento { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+    .forma-pagamento h3 { color: #6B8E23; margin-bottom: 15px; }
+    .forma-pagamento label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1em;
+        cursor: pointer;
+    }
+    .forma-pagamento input[type="radio"] { margin-right: 8px; }
+    .botao-enviar {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background-color: #25D366;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.3em;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 30px;
+        transition: background-color 0.2s;
+    }
+    .botao-enviar:hover { background-color: #1DA851; }
+    #infoPix {
+        background-color: #e8f5e9;
+        border: 1px solid #a5d6a7;
+        border-radius: 8px;
+        padding: 15px;
+        margin-top: 20px;
+        display: none;
+        text-align: center;
+        color: #2e7d32;
+    }
+    #infoPix .chave-pix {
+        font-weight: bold;
+        font-size: 1.1em;
+        color: #1b5e20;
+        word-break: break-all;
+    }
+    .delivery-info {
+        text-align: center;
+        margin-top: 25px;
+        padding: 15px;
+        background-color: #e0f7fa;
+        border: 1px solid #b2ebf2;
+        border-radius: 8px;
+        color: #00796b;
+        font-weight: bold;
+        font-size: 0.95em;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Pamonhas de Goiás</h1>
+<div class="container">
+    <h1>Pamonhas de Goiás</h1>
+    <div id="lista-produtos"></div>
+    <div class="total-container">Total: <span id="total-pedido">R$ 0,00</span></div>
 
-        <div id="lista-produtos"></div>
-
-        <div class="total-container">
-            Total: <span id="total-pedido">R$ 0,00</span>
-        </div>
-
-        <div class="input-group">
-            <label for="nome">Seu Nome:</label>
-            <input type="text" id="nome" placeholder="Seu nome completo" required>
-        </div>
-
-        <div class="input-group">
-            <label for="observacoes">Observações (Opcional):</label>
-            <textarea id="observacoes" placeholder="Alguma observação sobre o pedido?"></textarea>
-        </div>
-
-        <div class="forma-pagamento">
-            <h3>Forma de Pagamento:</h3>
-            <label>
-                <input type="radio" name="pagamento" value="PIX" id="pagamentoPix" onchange="togglePixInfo()"> PIX
-            </label>
-            <label>
-                <input type="radio" name="pagamento" value="Dinheiro na Retirada" id="pagamentoDinheiro" onchange="togglePixInfo()" checked> Dinheiro na Retirada
-            </label>
-        </div>
-
-        <div id="infoPix">
-            <p>Por favor, faça o pagamento via PIX para a chave abaixo:</p>
-            <p>Chave PIX: <span class="chave-pix" id="chavePixText">19991866298</span></p>
-            <p style="margin-top: 10px;"><strong>Nome:</strong> JORGE LUIZ MARIANO VIEIRA</p>
-            <p><strong>Instituição:</strong> PICPAY</p>
-            <button onclick="copyPix()">Copiar Chave PIX</button>
-            <p style="margin-top: 10px; font-size: 0.9em;">Obrigado pelo seu pedido!</p>
-        </div>
-
-        <button class="botao-enviar" onclick="enviarPedido()">Confirmar Pedido para Retirada</button>
-        
-        <p style="text-align: center; margin-top: 20px; font-weight: bold; color: #8B4513;">
-            Endereço para Retirada: <br>Rua Paiaguás, 405, Jd. Aníbal
-        </p>
-
-        <div class="delivery-info">
-            *Fazemos entregas **sem custo** para pedidos acima de 10 itens!*<br>
-            (Para entrega, inclua seu endereço nas observações.)
-        </div>
+    <div class="input-group">
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" placeholder="Seu nome completo" required>
     </div>
 
-    <script>
-        // ===================================================================
-        // ||               SEU CARDÁPIO - EDITE APENAS AQUI                ||
-        // ===================================================================
-        const produtos = [
-            { 
-                nome: "Pamonha Doce com Queijo", 
-                preco: 9.00, 
-                descricao: "A doçura que conforta! Nossa pamonha doce é feita com milho fresquinho e um delicioso recheio de queijo."
-            },
-            { 
-                nome: "Pamonha Salgada com Queijo", 
-                preco: 9.00, 
-                descricao: "Um clássico goiano! A pamonha salgada é pura tradição, com o sabor autêntico do milho e um recheio generoso de queijo."
-            },
-            { 
-                nome: "Pamonha com Linguiça e Queijo", 
-                preco: 12.50, 
-                descricao: "Sabor em dobro! Combina a robustez da linguiça com a cremosidade do queijo derretido."
-            },
-            { 
-                nome: "Cural com Canela", 
-                preco: 7.00, 
-                descricao: "Doçura e cremosidade em cada colherada! Finalizado com uma pitada de canela, trazendo um aroma e sabor especial."
-            },
-            { 
-                nome: "Cural sem Canela", 
-                preco: 7.00, 
-                descricao: "A pura cremosidade do milho! Nosso cural tradicional, sem canela, é suave e delicado."
-            }
-        ];
-        // ===================================================================
+    <div class="input-group">
+        <label for="observacoes">Observações (Opcional):</label>
+        <textarea id="observacoes" placeholder="Alguma observação sobre o pedido?"></textarea>
+    </div>
 
-        function renderizarProdutos() {
-            const container = document.getElementById('lista-produtos');
-            if (!container) return; 
+    <div class="forma-pagamento">
+        <h3>Forma de Pagamento:</h3>
+        <label><input type="radio" name="pagamento" value="PIX" id="pagamentoPix" onchange="togglePixInfo()"> PIX</label>
+        <label><input type="radio" name="pagamento" value="Dinheiro na Retirada" onchange="togglePixInfo()" checked> Dinheiro na Retirada</label>
+    </div>
 
-            produtos.forEach(p => {
-                container.innerHTML += `
-                    <div class="produto" data-nome="${p.nome}" data-preco="${p.preco.toFixed(2)}">
-                        <div class="produto-info">
-                            <h2>${p.nome}</h2>
-                            <p>${p.descricao}</p>
-                            <span class="preco">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
-                        </div>
-                        <div class="quantidade">
-                            <button onclick="changeQuantity(this, -1)">-</button>
-                            <input type="number" value="0" min="0" class="item-quantidade" onchange="updateTotal()">
-                            <button onclick="changeQuantity(this, 1)">+</button>
-                        </div>
-                    </div>
-                `;
-            });
+    <div id="infoPix">
+        <p>Por favor, faça o pagamento via PIX para a chave abaixo:</p>
+        <p>Chave PIX: <span class="chave-pix" id="chavePixText">19991866298</span></p>
+        <p><strong>Nome:</strong> JORGE LUIZ MARIANO VIEIRA</p>
+        <p><strong>Instituição:</strong> PICPAY</p>
+        <button onclick="copyPix()">Copiar Chave PIX</button>
+    </div>
+
+    <button class="botao-enviar" onclick="enviarPedido()">Confirmar Pedido</button>
+
+    <p style="text-align: center; margin-top: 20px; font-weight: bold; color: #8B4513;">
+        Endereço para Retirada: <br>Rua Paiaguás, 405, Jd. Aníbal
+    </p>
+
+    <div class="delivery-info">
+        *Entregas sem custo para pedidos acima de 10 itens!*<br>
+        (Para entrega, inclua seu endereço nas observações.)
+    </div>
+</div>
+
+<script>
+const listaProdutos = [
+    { nome: "Pamonha Doce sem Queijo", preco: 9.00, descricao: "A doçura do milho fresquinho, sem recheio de queijo." },
+    { nome: "Pamonha Doce com Queijo", preco: 10.00, descricao: "A doçura que conforta! Feita com milho fresquinho e recheio de queijo." },
+    { nome: "Pamonha Salgada com Queijo", preco: 10.00, descricao: "Clássica pamonha salgada com sabor autêntico e recheio de queijo." },
+    { nome: "Pamonha Salgada com Queijo e Linguiça", preco: 13.00, descricao: "Combinação da linguiça com cremosidade do queijo derretido." },
+    { nome: "Cural 140g", preco: 4.00, descricao: "Cural cremoso de milho (140g). Se desejar com canela, informe nas observações." },
+    { nome: "Cural 175g", preco: 5.00, descricao: "Cural cremoso de milho (175g). Se desejar com canela, informe nas observações." },
+    { nome: "Cural 250g", preco: 8.00, descricao: "Cural cremoso de milho (250g). Se desejar com canela, informe nas observações." }
+];
+
+function renderizarProdutos() {
+    const container = document.getElementById('lista-produtos');
+    let html = '';
+    listaProdutos.forEach(p => {
+        html += `
+        <div class="produto" data-nome="${p.nome}" data-preco="${p.preco}">
+            <div class="produto-info">
+                <h2>${p.nome}</h2>
+                <p>${p.descricao}</p>
+                <span class="preco">R$ ${p.preco.toFixed(2).replace('.', ',')}</span>
+            </div>
+            <div class="quantidade">
+                <button onclick="alterarQuantidade(this, -1)">-</button>
+                <input type="number" value="0" min="0" class="item-quantidade" onchange="atualizarTotal()">
+                <button onclick="alterarQuantidade(this, 1)">+</button>
+            </div>
+        </div>`;
+    });
+    container.innerHTML = html;
+}
+
+function alterarQuantidade(btn, delta) {
+    const input = btn.parentNode.querySelector('.item-quantidade');
+    let val = parseInt(input.value) + delta;
+    input.value = Math.max(val, 0);
+    atualizarTotal();
+}
+
+function atualizarTotal() {
+    let total = 0;
+    document.querySelectorAll('.produto').forEach(prod => {
+        const preco = parseFloat(prod.dataset.preco);
+        const qtd = parseInt(prod.querySelector('.item-quantidade').value);
+        total += preco * qtd;
+    });
+    document.getElementById('total-pedido').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+}
+
+function togglePixInfo() {
+    document.getElementById('infoPix').style.display = document.getElementById('pagamentoPix').checked ? 'block' : 'none';
+}
+
+function copyPix() {
+    const chave = document.getElementById('chavePixText').textContent;
+    navigator.clipboard.writeText(chave).then(() => alert('Chave PIX copiada!'));
+}
+
+function enviarPedido() {
+    const nome = document.getElementById('nome').value.trim();
+    if (!nome) return alert('Por favor, preencha seu nome.');
+    
+    let mensagem = `*NOVO PEDIDO - Pamonhas de Goiás*\n\n*Cliente:* ${nome}\n\n*Itens:*\n`;
+    let totalItens = 0;
+    let totalValor = 0;
+
+    document.querySelectorAll('.produto').forEach(prod => {
+        const nomeProd = prod.dataset.nome;
+        const preco = parseFloat(prod.dataset.preco);
+        const qtd = parseInt(prod.querySelector('.item-quantidade').value);
+        if (qtd > 0) {
+            mensagem += `- ${qtd}x ${nomeProd} (R$ ${preco.toFixed(2).replace('.', ',')})\n`;
+            totalItens += qtd;
+            totalValor += preco * qtd;
         }
+    });
 
-        function changeQuantity(button, change) {
-            const input = button.parentNode.querySelector('.item-quantidade');
-            let value = parseInt(input.value);
-            value = value + change;
-            if (value < 0) value = 0;
-            input.value = value;
-            updateTotal();
-        }
+    const obs = document.getElementById('observacoes').value.trim();
+    if (obs) mensagem += `\n*Observações:* ${obs}\n`;
 
-        function updateTotal() {
-            let total = 0;
-            const produtos = document.querySelectorAll('.produto');
-            produtos.forEach(produto => {
-                const preco = parseFloat(produto.dataset.preco);
-                const quantidade = parseInt(produto.querySelector('.item-quantidade').value);
-                total += preco * quantidade;
-            });
-            document.getElementById('total-pedido').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        }
+    mensagem += `\n*Total:* R$ ${totalValor.toFixed(2).replace('.', ',')}\n`;
+    mensagem += `*Forma de Pagamento:* ${document.querySelector('input[name="pagamento"]:checked').value}\n`;
 
-        function togglePixInfo() {
-            const pagamentoPix = document.getElementById('pagamentoPix');
-            const infoPix = document.getElementById('infoPix');
-            infoPix.style.display = pagamentoPix.checked ? 'block' : 'none';
-        }
+    if (totalItens >= 10) {
+        mensagem += `\n_Este pedido tem ${totalItens} itens e se qualifica para entrega gratuita._\nInclua o endereço nas observações.\n`;
+    } else {
+        mensagem += `\n*Endereço para Retirada:* Rua Paiaguás, 405, Jd. Aníbal\n`;
+    }
 
-        function copyPix() {
-            const pixText = document.getElementById('chavePixText').textContent;
-            const copyButton = document.querySelector('#infoPix button');
-            navigator.clipboard.writeText(pixText).then(() => {
-                const originalText = copyButton.textContent;
-                copyButton.textContent = 'Copiado!';
-                copyButton.style.backgroundColor = '#2e7d32';
-                setTimeout(() => {
-                    copyButton.textContent = originalText;
-                    copyButton.style.backgroundColor = '#4CAF50';
-                }, 2000);
-            }).catch(err => {
-                console.error('Erro ao copiar a chave PIX: ', err);
-                alert('Não foi possível copiar a chave PIX. Por favor, copie manualmente: ' + pixText);
-            });
-        }
+    window.open(`https://api.whatsapp.com/send?phone=5519993709642&text=${encodeURIComponent(mensagem)}`, '_blank');
+}
 
-        function enviarPedido() {
-            const nome = document.getElementById('nome').value;
-            const observacoes = document.getElementById('observacoes').value;
-            const formaPagamento = document.querySelector('input[name="pagamento"]:checked').value;
-            const totalPedido = document.getElementById('total-pedido').textContent;
-
-            if (!nome) {
-                alert('Por favor, preencha seu nome para o pedido!');
-                return;
-            }
-
-            let mensagem = `*NOVO PEDIDO - Pamonhas de Goiás*\n\n`;
-            mensagem += `*Cliente:* ${nome}\n`;
-            mensagem += `\n*Itens do Pedido:*\n`;
-
-            const produtos = document.querySelectorAll('.produto');
-            let temItemNoCarrinho = false;
-            let totalItens = 0;
-            produtos.forEach(produto => {
-                const nomeProduto = produto.dataset.nome;
-                const quantidade = parseInt(produto.querySelector('.item-quantidade').value);
-                const precoUnitario = parseFloat(produto.dataset.preco);
-
-                if (quantidade > 0) {
-                    mensagem += `- ${quantidade}x ${nomeProduto} (R$ ${precoUnitario.toFixed(2).replace('.', ',')}/un)\n`;
-                    temItemNoCarrinho = true;
-                    totalItens += quantidade;
-                }
-            });
-
-            if (!temItemNoCarrinho) {
-                alert('Seu carrinho está vazio! Adicione itens antes de enviar o pedido.');
-                return;
-            }
-
-            if (observacoes) {
-                mensagem += `\n*Observações:* ${observacoes}\n`;
-            }
-
-            mensagem += `\n*Total a Pagar:* ${totalPedido}\n`;
-            mensagem += `*Forma de Pagamento:* ${formaPagamento}\n`;
-
-            if (formaPagamento === "PIX") {
-                 mensagem += `\n*Instruções PIX:*\nFaça o pagamento para a chave *19991866298*.\n\n*Nome:* JORGE LUIZ MARIANO VIEIRA\n*Instituição:* PICPAY \n\n_O pedido será confirmado após o pagamento._`;
-            }
-
-            if (totalItens >= 10) {
-                mensagem += `\n\n_Este pedido tem ${totalItens} itens e se qualifica para entrega gratuita._\n`;
-                mensagem += `*Por favor, inclua o endereço de entrega completo nas observações ou por mensagem.*\n`;
-                mensagem += `\n_Já estamos preparando seu pedido!_`;
-            } else {
-                mensagem += `\n\n*Endereço para Retirada:*\n_Rua Paiaguás, 405, Jd. Aníbal_\n`;
-                mensagem += `\n_Já estamos preparando seu pedido para retirada!_`;
-            }
-            
-            const numeroWhatsApp = '5519993709642';
-            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
-            window.open(urlWhatsApp, '_blank');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderizarProdutos();
-            updateTotal();
-        });
-    </script>
+document.addEventListener('DOMContentLoaded', () => {
+    renderizarProdutos();
+    atualizarTotal();
+});
+</script>
 </body>
 </html>
